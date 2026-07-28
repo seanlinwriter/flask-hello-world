@@ -6,7 +6,7 @@ app = Flask(__name__)
 def index():
     return 'Hello, World from Ching-Hsiang Lin in CSPB 3308!'
 
-@app.route("db_test")
+@app.route("/db_test")
 def db_test():
     conn = None
     try:
