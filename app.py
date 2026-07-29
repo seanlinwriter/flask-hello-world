@@ -72,4 +72,16 @@ def select():
         html += "</tr>"
     html += "</table>"
     return html
+
+@app.route('/db_drop')
+def drop():
+    conn = psycopg2.connect("postgresql://sean_postgres_db_user:3mGXzlo9Ga1fAUrMU20BBDcSH1hlKsvP@dpg-d9kdkatg1s2s73fth090-a/sean_postgres_db")
+    cur = conn.cursor()
+    cur.execute('''
+    DROP TABLE Basketball;    
+    ''')
+    conn.commit()
+    conn.close()
+    return "Basketball Table Successfully Drop"
+    
     
