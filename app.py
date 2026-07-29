@@ -18,6 +18,7 @@ def db_test():
         if conn is not None:
             conn.close()
 
+# Create the Basketball table
 @app.route('/db_create')
 def db_create():
     conn = psycopg2.connect("postgresql://sean_postgres_db_user:3mGXzlo9Ga1fAUrMU20BBDcSH1hlKsvP@dpg-d9kdkatg1s2s73fth090-a/sean_postgres_db")
@@ -35,6 +36,7 @@ def db_create():
     conn.close()
     return "Basketball Table Successfully Created"
 
+# Insert data into the Basketball table
 @app.route('/db_insert')
 def insert():
     conn = psycopg2.connect("postgresql://sean_postgres_db_user:3mGXzlo9Ga1fAUrMU20BBDcSH1hlKsvP@dpg-d9kdkatg1s2s73fth090-a/sean_postgres_db")
@@ -52,7 +54,7 @@ def insert():
     conn.close()
     return "Basketball Table Successfully Populated"
 
-
+# Select data from the Basketball table
 @app.route('/db_select')
 def select():
     conn = psycopg2.connect("postgresql://sean_postgres_db_user:3mGXzlo9Ga1fAUrMU20BBDcSH1hlKsvP@dpg-d9kdkatg1s2s73fth090-a/sean_postgres_db")
@@ -73,6 +75,7 @@ def select():
     html += "</table>"
     return html
 
+# drop the Basketball table
 @app.route('/db_drop')
 def drop():
     conn = psycopg2.connect("postgresql://sean_postgres_db_user:3mGXzlo9Ga1fAUrMU20BBDcSH1hlKsvP@dpg-d9kdkatg1s2s73fth090-a/sean_postgres_db")
@@ -82,6 +85,6 @@ def drop():
     ''')
     conn.commit()
     conn.close()
-    return "Basketball Table Successfully Drop"
+    return "Basketball Table Successfully Dropped"
     
     
